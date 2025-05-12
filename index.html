@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: #16a34a; /* verde Tailwind: green-600 */
+          background-color: rgba(22, 163, 74, 0.2); /* fondo semi-transparente */
+          border-radius: 9999px; /* completamente redondo */
+          padding: 0.75rem;
+          transition: background-color 0.3s, transform 0.3s;
+        }
+      
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+          background-color: #16a34a;
+          color: white;
+          transform: scale(1.1);
+        }
+      
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+
+        .swiper-pagination-bullet {
+            background: #a7f3d0; 
+            opacity: 1;
+            width: 10px;
+            height: 10px;
+            margin: 0 4px !important;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #16a34a; /* verde principal (green-600) */
+            transform: scale(1.25);
+        }
+    </style>
+      
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <header class="bg-green-600 text-white py-3 px-4 fixed w-full top-0 shadow-lg z-50">
+        <nav class="container mx-auto flex justify-between items-center relative">
+            <h1 class="text-xl font-semibold">Mi Portafolio</h1>
+            <button id="menu-toggle" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="menu" class="hidden md:flex space-x-6 md:static absolute top-12 left-0 w-full bg-green-600 md:bg-transparent p-4 md:p-0">
+                <li><a href="#" class="nav-link hover:text-gray-300">Inicio</a></li>
+                <li><a href="#proyectos" class="nav-link hover:text-gray-300">Proyectos</a></li>
+                <li><a href="#contacto" class="nav-link hover:text-gray-300">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="mt-20 max-w-7xl mx-auto px-4">
+        <section class="py-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div id="inicio" class="text-center md:text-left">
+                <h1 class="text-4xl font-bold">Hola, soy Camilo Pacheco</h1>
+                <p class="text-lg mt-2">Desarrollador Web.</p>
+                <img src="tu-foto.jpg" alt="Camilo" class="mx-auto md:mx-0 mt-4 w-40 h-40 rounded-full shadow-lg">
+                <a href="src/CV - Camilo Pacheco Perez.pdf" download class="mt-4 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Descargar CV</a>
+            </div>
+            <div class="flex flex-col space-y-8">
+                <div id="sobre-mi" class="bg-white p-6 shadow-md rounded-lg">
+                    <h2 class="text-3xl font-semibold">Sobre Mí</h2>
+                    <p class="mt-4 w-full text-justify">Soy desarrollador con dos años de experiencia en el mantenimiento y desarrollo de sitios web. Tengo conocimientos en varias tecnologías, buenas prácticas de programación y documentación. Me interesa seguir fortaleciendo mis habilidades y crecer profesionalmente en el área del desarrollo de software.</p>
+                </div>
+                <div id="habilidades" class="bg-white p-6 shadow-md rounded-lg">
+                    <h2 class="text-3xl font-semibold">Habilidades</h2>
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold">Habilidades Técnicas</h3>
+                            <ul class="mt-2 text-gray-600">
+                                <li>JavaScript | PHP</li>
+                                <li>HTML | CSS | Laravel</li>
+                                <li>MySQL</li>
+                                <li>Git | GitHub</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Habilidades Blandas</h3>
+                            <ul class="mt-2 text-gray-600">
+                                <li>- Trabajo en equipo</li>
+                                <li>- Comunicación efectiva</li>
+                                <li>- Resolución de problemas</li>
+                                <li>- Adaptabilidad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="py-16">
+            <h2 class="text-3xl font-semibold text-center">Proyectos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <!-- Proyecto 1 -->
+                <div class="bg-white p-4 shadow-md rounded-lg">
+                    <h3 class="text-xl font-semibold">SITI Colombia</h3>
+                    <p class="text-gray-700 mb-2">
+                        Herramienta interna para programar y gestionar actividades con clientes, incluyendo roles diferenciados para administradores y técnicos.
+                    </p>
+                    <div class="mt-3">
+                        <div class="flex flex-wrap gap-2 mt-1">
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">HTML</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">PHP</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">CSS</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">MySQL</span>
+                        </div>
+                    </div>  
+                    <div class="swiper mySwiper mt-2 rounded-lg">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="src/img/siti1.png" class="w-full h-auto rounded-lg" /></div></div>
+                        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="src/img/siti2.png" class="w-full h-auto rounded-lg" /></div></div>
+                        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="src/img/siti3.png" class="w-full h-auto rounded-lg" /></div></div>
+                        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="src/img/siti4.png" class="w-full h-auto rounded-lg" /></div></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    </div>
+                    <a href="https://github.com/cp327/siticolombiaProyecto" target="_blank" class="mt-2 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"><i class="fa-brands fa-github"></i>  Ver Código</a>
+                    <a href="https://siticolombia.co/" target="_blank" class="mt-2 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                          Visitar SitiColombia
+                    </a>
+                </div>
+            
+                <!-- Proyecto 2 -->
+                <div class="bg-white p-4 shadow-md rounded-lg">
+                    <h3 class="text-xl font-semibold">Automatización de notificaciones por WhatsApp</h3>
+                    <p class="text-gray-700 mb-2">Implementación de sistema que envía mensajes automáticos a los clientes sobre eventos programados en el calendario empresarial.</p>
+                    <div class="mt-3">
+                        <div class="flex flex-wrap gap-2 mt-1">
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">Google App Scripts</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">Meta For Developers</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">JavaScript</span>
+                        </div>
+                    </div>  
+            
+                    <div class="swiper mySwiper mt-2 rounded-lg">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="src/img/WA1.png" class="w-full h-auto rounded-lg" /></div></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    </div>
+            
+                    <a href="https://github.com/cp327/automatizacionWAProyecto" target="_blank" class="mt-2 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"><i class="fa-brands fa-github"></i>  Ver Código</a>
+                </div>
+            
+                <!-- Proyecto 3 -->
+                <div class="bg-white p-4 shadow-md rounded-lg">
+                    <h3 class="text-xl font-semibold">GoodMovies</h3>
+                    <p class="text-gray-700 mb-2">Proyecto que simula una plataforma de streaming de películas mediante un modelo de suscripción mensual.</p>
+                    <div class="mt-3">
+                        <div class="flex flex-wrap gap-2 mt-1">
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">HTML</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">PHP</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">CSS</span>
+                        <span class="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full">MySQL</span>
+                        </div>
+                    </div> 
+            
+                    <div class="swiper mySwiper mt-2 rounded-lg">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="src/img/gm1.png" class="w-full h-auto rounded-lg" /></div></div>
+                        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="src/img/gm2.png" class="w-full h-auto rounded-lg" /></div></div>
+                        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="src/img/gm3.png" class="w-full h-auto rounded-lg" /></div></div>
+                        <div class="swiper-slide"><div class="swiper-zoom-container"><img src="src/img/gm4.png" class="w-full h-auto rounded-lg" /></div></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    </div>
+            
+                    <a href="https://github.com/cp327/goodmoviesproyecto" target="_blank" class="mt-2 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"><i class="fa-brands fa-github"></i>  Ver Código</a>
+                    <a href="https://goodmovies.infinityfreeapp.com/" target="_blank" class="mt-2 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                          Visitar GoodMovies
+                    </a>
+                </div>
+            </div>
+        </section>
+          
+
+        <section id="contacto" class="py-16 items-center">
+            <div>
+                <h2 class="text-3xl text-center font-semibold">Contacto</h2>
+                <form id="contactForm" class="max-w-lg mx-auto mt-6 bg-white p-6 shadow-md rounded-lg">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required class="w-full p-2 border rounded mb-2">
+                    <input type="email" id="email" name="email" placeholder="Email" required class="w-full p-2 border rounded mb-2">
+                    <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required class="w-full p-2 border rounded mb-2"></textarea>
+                    <button type="submit" id="submitButton" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                        <span id="buttonText">Enviar Mensaje</span>
+                        <span id="loadingSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </form>
+                <div id="responseMessage" class="mt-3"></div>
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="https://www.linkedin.com/in/camilo-pacheco-979b18337/" target="_blank" class="text-green-600 text-2xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/cp327" target="_blank" class="text-green-600 text-2xl"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-green-600 text-white text-center p-4 mt-8">
+        <p>&copy; 2025 Camilo Pacheco. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('menu').classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu').classList.add('hidden');
+                if (link.getAttribute('href') === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // Activa todos los Swiper con zoom
+        document.querySelectorAll('.mySwiper').forEach((swiperEl) => {
+        new Swiper(swiperEl, {
+            loop: true,
+            zoom: true,
+            pagination: {
+            el: swiperEl.querySelector('.swiper-pagination'),
+            clickable: true,
+            },
+            navigation: {
+            nextEl: swiperEl.querySelector('.swiper-button-next'),
+            prevEl: swiperEl.querySelector('.swiper-button-prev'),
+            },
+        });
+        });
+    </script>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita la recarga de la página
+        
+            var formData = new FormData(this);
+            var submitButton = document.getElementById("submitButton");
+            var buttonText = document.getElementById("buttonText");
+            var loadingSpinner = document.getElementById("loadingSpinner");
+        
+            // Deshabilitar el botón y mostrar el spinner
+            submitButton.disabled = true;
+            buttonText.textContent = "Enviando...";
+            loadingSpinner.classList.remove("d-none");
+        
+            fetch("src/sendMail.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json()) // Convertir la respuesta a JSON
+            .then(data => {
+                let responseMessage = document.getElementById("responseMessage");
+                if (data.success) {
+                    responseMessage.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+                    document.getElementById("contactForm").reset(); // Limpia el formulario
+                } else {
+                    responseMessage.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+                }
+            })
+            .catch(error => console.error("Error:", error))
+            .finally(() => {
+                // Rehabilitar el botón y ocultar el spinner después de la respuesta
+                submitButton.disabled = false;
+                buttonText.textContent = "Enviar Mensaje";
+                loadingSpinner.classList.add("d-none");
+            });
+        });
+    </script>
+  
+  
+</body>
+</html>
