@@ -203,24 +203,30 @@
         </section>
           
 
-        <section id="contacto" class="py-16 items-center">
-            <div>
-                <h2 class="text-3xl text-center font-semibold">Contacto</h2>
-                <form id="contactForm" class="max-w-lg mx-auto mt-6 bg-white p-6 shadow-md rounded-lg">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required class="w-full p-2 border rounded mb-2">
-                    <input type="email" id="email" name="email" placeholder="Email" required class="w-full p-2 border rounded mb-2">
-                    <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required class="w-full p-2 border rounded mb-2"></textarea>
-                    <button type="submit" id="submitButton" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-                        <span id="buttonText">Enviar Mensaje</span>
-                        <span id="loadingSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                    </button>
-                </form>
-                <div id="responseMessage" class="mt-3"></div>
-                <div class="flex justify-center space-x-6 mt-4">
-                    <a href="https://www.linkedin.com/in/camilo-pacheco-979b18337/" target="_blank" class="text-green-600 text-2xl"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/cp327" target="_blank" class="text-green-600 text-2xl"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
+
+  <div>
+    <h2 class="text-3xl text-center font-semibold">Contacto</h2>
+
+    <form id="contactForm" action="https://formspree.io/f/mqaqykaz" method="POST" class="max-w-lg mx-auto mt-6 bg-white p-6 shadow-md rounded-lg space-y-4">
+      <input type="text" name="nombre" placeholder="Nombre" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+      <input type="email" name="email" placeholder="Email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+      <textarea name="mensaje" placeholder="Mensaje" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+
+      <!-- Mensaje dinámico -->
+      <div id="formMessage" class="text-center text-sm font-medium"></div>
+
+      <button type="submit" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300">
+        Enviar Mensaje
+      </button>
+    </form>
+
+    <div class="flex justify-center space-x-6 mt-6">
+      <a href="https://www.linkedin.com/in/camilo-pacheco-979b18337/" target="_blank" class="text-green-600 text-2xl"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/cp327" target="_blank" class="text-green-600 text-2xl"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+
+
         </section>
 
     </main>
@@ -265,42 +271,38 @@
     </script>
 
     <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Evita la recarga de la página
-        
-            var formData = new FormData(this);
-            var submitButton = document.getElementById("submitButton");
-            var buttonText = document.getElementById("buttonText");
-            var loadingSpinner = document.getElementById("loadingSpinner");
-        
-            // Deshabilitar el botón y mostrar el spinner
-            submitButton.disabled = true;
-            buttonText.textContent = "Enviando...";
-            loadingSpinner.classList.remove("d-none");
-        
-            fetch("src/sendMail.php", {
+        const form = document.getElementById("contactForm");
+        const messageDiv = document.getElementById("formMessage");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            try {
+            const response = await fetch(form.action, {
                 method: "POST",
-                body: formData
-            })
-            .then(response => response.json()) // Convertir la respuesta a JSON
-            .then(data => {
-                let responseMessage = document.getElementById("responseMessage");
-                if (data.success) {
-                    responseMessage.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
-                    document.getElementById("contactForm").reset(); // Limpia el formulario
-                } else {
-                    responseMessage.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+                body: formData,
+                headers: {
+                'Accept': 'application/json'
                 }
-            })
-            .catch(error => console.error("Error:", error))
-            .finally(() => {
-                // Rehabilitar el botón y ocultar el spinner después de la respuesta
-                submitButton.disabled = false;
-                buttonText.textContent = "Enviar Mensaje";
-                loadingSpinner.classList.add("d-none");
             });
+
+            if (response.ok) {
+                form.reset();
+                messageDiv.textContent = "📩 ¡Tu mensaje fue enviado con éxito!";
+                messageDiv.className = "text-green-600 text-center mt-2";
+            } else {
+                messageDiv.textContent = "❌ Hubo un error al enviar el mensaje.";
+                messageDiv.className = "text-red-600 text-center mt-2";
+            }
+            } catch (error) {
+            messageDiv.textContent = "❌ Error de red. Intenta más tarde.";
+            messageDiv.className = "text-red-600 text-center mt-2";
+            }
         });
     </script>
+
   
   
 </body>
