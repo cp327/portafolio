@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio</title>
+  <link rel="icon" href="../src/img/icono.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <h1 class="text-2xl font-bold text-green-600">Mi Portafolio</h1>
+      <a href="../index.html" class="text-gray-600 hover:text-green-600 transition">Inicio</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-green-600 text-white text-center py-16 px-4">
+    <h2 class="text-3xl md:text-5xl font-extrabold mb-4">AgroIA</h2>
+    <p class="text-base md:text-lg max-w-2xl mx-auto">
+      Chatbot inteligente con inteligencia artificial para predecir el rendimiento de cultivos en toneladas por hectárea y recomendar la mejor opción de siembra.
+    </p>
+  </section>
+
+  <!-- Contenido -->
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-16">
+
+    <!-- Descripción -->
+    <section>
+    <h3 class="text-2xl font-semibold text-green-600 mb-4">Descripción General</h3>
+    <p class="leading-relaxed text-gray-700">
+        AgroIA es una solución tecnológica que combina chatbots con modelos de machine learning para 
+        ayudar a agricultores y empresas del sector agrícola a tomar decisiones basadas en datos. 
+        A través de un chat interactivo, el usuario puede consultar la productividad estimada de un cultivo 
+        (expresada en toneladas por hectárea) y recibir una recomendación sobre qué sembrar.
+    </p>
+    <p class="leading-relaxed text-gray-700 mt-4">
+        El sistema fue entrenado con <span class="font-semibold text-green-600">datos históricos de producción agrícola</span>, 
+        logrando generar predicciones personalizadas según el tipo de cultivo, región y año. 
+        Su objetivo es facilitar la planificación agrícola con un enfoque práctico, accesible y basado en inteligencia artificial.
+    </p>
+    </section>
+
+    <!-- Objetivos -->
+    <section>
+    <h3 class="text-2xl font-semibold text-green-600 mb-4">Objetivos Principales</h3>
+    <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Brindar a los agricultores una herramienta de apoyo en la toma de decisiones.</li>
+        <li>Predecir el rendimiento en toneladas por hectárea de diferentes cultivos.</li>
+        <li>Recomendar el cultivo más adecuado según la información ingresada.</li>
+        <li>Hacer uso de inteligencia artificial para impulsar la innovación en el sector agrícola.</li>
+    </ul>
+    </section>
+
+    <!-- Retos Técnicos -->
+    <section>
+    <h3 class="text-2xl font-semibold text-green-600 mb-4">Retos Técnicos y Soluciones</h3>
+    <p class="text-gray-700 leading-relaxed">
+        Uno de los principales retos fue limpiar y estructurar grandes volúmenes de datos agrícolas 
+        para entrenar los modelos de predicción. Para ello, se aplicaron técnicas de 
+        <span class="font-semibold text-green-600">preprocesamiento de datos</span> y se probaron distintos algoritmos 
+        como regresión lineal y Random Forest, seleccionando el que ofrecía mayor precisión.  
+        Además, se integró un chatbot para facilitar la interacción del usuario con la IA de manera amigable.
+    </p>
+    </section>
+
+    <!-- Galería de imágenes -->
+    <section>
+    <h3 class="text-2xl font-semibold text-green-600 mb-6">Capturas del Proyecto</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <img src="../src/img/agroia1.png" alt="Vista 1 AgroIA" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="agroia" data-index="0">
+        <img src="../src/img/agroia2.png" alt="Vista 2 AgroIA" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="agroia" data-index="1">
+        <img src="../src/img/agroia3.png" alt="Vista 3 AgroIA" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="agroia" data-index="2">
+        <img src="../src/img/agroia4.png" alt="Vista 4 AgroIA" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="agroia" data-index="3">
+    </div>
+    <p class="text-sm text-gray-500 mt-4 text-center">
+        <span class="font-semibold">Credenciales de prueba</span><br>
+        <span class="italic">user:</span> agronomo &nbsp; | &nbsp; <span class="italic">pass:</span> agro
+    </p>
+    </section>
+
+    <!-- Tecnologías -->
+    <section>
+    <h3 class="text-2xl font-semibold text-green-600 mb-6">Tecnologías Utilizadas</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
+
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <i class="fab fa-html5 text-3xl text-orange-500"></i>
+        <p class="mt-2">HTML</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <i class="fab fa-css3-alt text-3xl text-blue-500"></i>
+        <p class="mt-2">CSS</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <i class="fab fa-js text-3xl text-yellow-400"></i>
+        <p class="mt-2">JavaScript</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <i class="fab fa-python text-3xl text-blue-500"></i>
+        <p class="mt-2">Python</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <i class="fas fa-database text-3xl text-gray-600"></i>
+        <p class="mt-2">Pandas</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <i class="fas fa-flask text-3xl text-green-700"></i>
+        <p class="mt-2">Flask</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <i class="fas fa-cloud text-3xl text-indigo-400"></i>
+        <p class="mt-2">Google Colab</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <i class="fas fa-robot text-3xl text-green-600"></i>
+        <p class="mt-2">Spacy</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Aprendizajes -->
+    <section>
+    <h3 class="text-2xl font-semibold text-green-600 mb-4">Aprendizajes y Futuras Mejoras</h3>
+    <p class="leading-relaxed text-gray-700">
+        Este proyecto reforzó conocimientos en <span class="font-semibold text-green-600">machine learning aplicado a datos reales</span>, 
+        así como en la integración de modelos predictivos dentro de interfaces accesibles como un chatbot. 
+    </p>
+    <p class="leading-relaxed text-gray-700 mt-4">
+        A futuro, se planea mejorar el modelo con más variables (clima, tipo de suelo) e integrar 
+        un dashboard interactivo con gráficas que complementen las predicciones generadas por el chatbot.
+    </p>
+    </section>
+
+    <!-- Botón Volver -->
+    <div class="text-center">
+      <a href="../index.html" class="inline-block bg-green-600 text-white px-6 py-3 rounded-xl shadow hover:bg-green-700 transition">
+        ⬅ Volver al Portafolio
+      </a>
+    </div>
+  </main>
+
+      <!-- Botón flotante de WhatsApp con Tooltip -->
+    <a href="https://wa.me/573045239856" target="_blank" 
+    class="group fixed bottom-6 right-6 bg-green-600 text-white text-3xl 
+            w-14 h-14 flex items-center justify-center rounded-full 
+            shadow-lg hover:bg-green-700 transition z-50">
+    <i class="fab fa-whatsapp"></i>
+
+    <!-- Tooltip -->
+    <span class="absolute right-full mr-3 bottom-1/2 translate-y-1/2 
+                bg-gray-800 text-white text-sm px-3 py-1 rounded-lg 
+                opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        💬 Chatea conmigo en WhatsApp
+    </span>
+    </a>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t mt-12">
+    <div class="max-w-6xl mx-auto px-6 py-6 text-center text-gray-500 text-sm">
+      © 2025 Camilo Pacheco. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- Modal global -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50 transition-opacity duration-300">
+  <span class="absolute top-6 right-8 text-white text-3xl cursor-pointer" onclick="closeModal()">&times;</span>
+  <button onclick="prevImage()" class="absolute left-4 text-white text-4xl font-bold px-3 py-1 bg-black bg-opacity-40 rounded-full hover:bg-opacity-70">&larr;</button>
+  <button onclick="nextImage()" class="absolute right-4 text-white text-4xl font-bold px-3 py-1 bg-black bg-opacity-40 rounded-full hover:bg-opacity-70">&rarr;</button>
+  <img id="modalImage" src="" class="max-w-full max-h-[80vh] rounded-lg shadow-lg border-4 border-white transform scale-90 opacity-0 transition duration-300">
+</div>
+
+<script src="../src/js/gallery.js"></script>
+
+</body>
+</html>
