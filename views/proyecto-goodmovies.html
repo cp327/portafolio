@@ -3,156 +3,239 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio</title>
-  <link rel="icon" href="../src/img/icono.png" type="image/png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style> body { font-family: 'Poppins', sans-serif; } </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
 
-  <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-      <h1 class="text-2xl font-bold text-green-600">Mi Portafolio</h1>
-      <a href="../index.html" class="text-gray-600 hover:text-green-600 transition">Inicio</a>
-    </nav>
+  <title>GoodMovies — Proyecto de Camilo Pacheco</title>
+  <meta name="description" content="Plataforma de streaming simulada con catálogo, autenticación de usuarios y modelo de suscripción, construida con PHP y MySQL.">
+  <link rel="canonical" href="https://cp327.github.io/portafolio/views/proyecto-goodmovies.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="GoodMovies — Proyecto de Camilo Pacheco">
+  <meta property="og:description" content="Plataforma de streaming simulada con catálogo, autenticación de usuarios y modelo de suscripción, construida con PHP y MySQL.">
+  <meta property="og:url" content="https://cp327.github.io/portafolio/views/proyecto-goodmovies.html">
+  <meta property="og:image" content="https://cp327.github.io/portafolio/src/img/gm1.png">
+  <meta property="og:locale" content="es_CO">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="../src/img/icono.png" type="image/png">
+
+  <link rel="stylesheet" href="../src/css/tokens.css">
+  <link rel="stylesheet" href="../src/css/reset.css">
+  <link rel="stylesheet" href="../src/css/base.css">
+  <link rel="stylesheet" href="../src/css/components.css">
+
+  <script type="module" src="../src/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="wrapper site-header__inner">
+      <a class="brand" href="../index.html">
+        Camilo Pacheco<span class="brand__dot" aria-hidden="true"></span>
+      </a>
+      <a class="header-link" href="../index.html">
+        <svg aria-hidden="true"><use href="../src/img/icons.svg#i-arrow-left"></use></svg>
+        Volver al portafolio
+      </a>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-green-600 text-white text-center py-16 px-4">
-    <h2 class="text-3xl md:text-5xl font-extrabold mb-4">GoodMovies</h2>
-    <p class="text-base md:text-lg max-w-2xl mx-auto">
-      Simulación de una plataforma de streaming con sistema de usuarios, catálogos y modelo de suscripción.
-    </p>
-  </section>
+  <main id="contenido">
 
-  <!-- Contenido -->
-  <main class="max-w-6xl mx-auto px-6 py-12 space-y-16">
+    <div class="page-hero">
+      <div class="wrapper">
+        <span class="page-hero__index">05 / 05</span>
+        <h1 class="page-hero__title">GoodMovies</h1>
+        <p class="page-hero__lead">Proyecto académico para practicar CRUD completo, sesiones y control de acceso por roles.</p>
 
-    <!-- Descripción -->
-    <section>
-      <h3 class="text-2xl font-semibold text-green-600 mb-4">Descripción General</h3>
-      <p class="leading-relaxed text-gray-700">
-        GoodMovies es un proyecto académico inspirado en plataformas de streaming como Netflix y HBO. 
-        Permite a los usuarios explorar un catálogo de películas y series, crear una cuenta personal 
-        y gestionar su suscripción. Aunque no incluye integración real de pagos, simula el proceso de facturación 
-        y control de acceso basado en roles.
-      </p>
-    </section>
+        <dl class="page-hero__sheet">
+            <div>
+              <dt>Rol</dt>
+              <dd>Full stack</dd>
+            </div>
+            <div>
+              <dt>Estado</dt>
+              <dd>Demo pública</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>PHP, MySQL, JavaScript</dd>
+            </div>
+        </dl>
 
-    <!-- Objetivos -->
-    <section>
-      <h3 class="text-2xl font-semibold text-green-600 mb-4">Objetivos Principales</h3>
-      <ul class="list-disc list-inside space-y-2 text-gray-700">
-        <li>Practicar la implementación de operaciones CRUD en PHP y MySQL.</li>
-        <li>Diseñar una interfaz intuitiva y responsiva para distintos dispositivos.</li>
-        <li>Simular un flujo real de suscripción con autenticación de usuarios.</li>
-      </ul>
-    </section>
-
-    <!-- Retos Técnicos -->
-    <section>
-      <h3 class="text-2xl font-semibold text-green-600 mb-4">Retos Técnicos y Soluciones</h3>
-      <p class="text-gray-700 leading-relaxed">
-        Uno de los principales retos fue garantizar la seguridad en el manejo de sesiones de usuario. 
-        Para ello se implementaron tokens de autenticación básicos, validaciones de formularios 
-        y consultas SQL preparadas. También se trabajó en la organización de las tablas para permitir 
-        futuras ampliaciones del catálogo.
-      </p>
-    </section>
-
-    <!-- Galería -->
-<section>
-  <h3 class="text-2xl font-semibold text-green-600 mb-6">Capturas del Proyecto</h3>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <img src="../src/img/gm1.png" alt="Vista 1 GoodMovies" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="goodmovies" data-index="0">
-    <img src="../src/img/gm2.png" alt="Vista 2 GoodMovies" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="goodmovies" data-index="1">
-    <img src="../src/img/gm3.png" alt="Vista 3 GoodMovies" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="goodmovies" data-index="2">
-    <img src="../src/img/gm4.png" alt="Vista 4 GoodMovies" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="goodmovies" data-index="3">
-    <img src="../src/img/gm5.png" alt="Vista 5 GoodMovies" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="goodmovies" data-index="4">
-    <img src="../src/img/gm6.png" alt="Vista 6 GoodMovies" class="rounded-2xl shadow hover:scale-105 transition cursor-pointer" data-gallery="goodmovies" data-index="5">
-  </div>
-</section>
-
-
-    <!-- Tecnologías -->
-    <section>
-      <h3 class="text-2xl font-semibold text-green-600 mb-6">Tecnologías Utilizadas</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
-        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
-          <i class="fab fa-html5 text-3xl text-orange-500"></i>
-          <p class="mt-2">HTML</p>
-        </div>
-        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
-          <i class="fab fa-css3-alt text-3xl text-blue-500"></i>
-          <p class="mt-2">CSS</p>
-        </div>
-        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
-          <i class="fab fa-js text-3xl text-yellow-400"></i>
-          <p class="mt-2">JavaScript</p>
-        </div>
-        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
-          <i class="fab fa-php text-3xl text-indigo-400"></i>
-          <p class="mt-2">PHP</p>
-        </div>
-        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-lg transition">
-          <i class="fas fa-database text-3xl text-green-600"></i>
-          <p class="mt-2">MySQL</p>
+        <div class="page-hero__actions">
+            <a class="btn btn--on-brand" href="https://goodmovies.infinityfreeapp.com/" target="_blank" rel="noopener noreferrer">
+              <svg class="btn__icon" aria-hidden="true"><use href="../src/img/icons.svg#i-external"></use></svg>
+              Ver la demo
+              <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+            </a>
+          <a class="btn btn--ghost-brand" href="https://github.com/cp327/goodmoviesproyecto" target="_blank" rel="noopener noreferrer">
+            <svg class="btn__icon" aria-hidden="true"><use href="../src/img/icons.svg#i-github"></use></svg>
+            Ver el código
+            <span class="visually-hidden">de GoodMovies (se abre en una pestaña nueva)</span>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Aprendizajes -->
-    <section>
-      <h3 class="text-2xl font-semibold text-green-600 mb-4">Aprendizajes y Futuras Mejoras</h3>
-      <p class="text-gray-700 leading-relaxed">
-        Este proyecto me permitió aplicar CRUD completo y reforzar conocimientos en la gestión de sesiones 
-        y diseño de interfaces responsivas. A futuro me gustaría implementar un sistema de recomendaciones 
-        basado en historial de visualización y añadir pasarelas de pago reales.
-      </p>
-    </section>
+    <div class="wrapper page">
 
-    <!-- Botón Volver -->
-    <div class="text-center">
-      <a href="../index.html" class="inline-block bg-green-600 text-white px-6 py-3 rounded-xl shadow hover:bg-green-700 transition">
-        ⬅ Volver al Portafolio
-      </a>
+      <section data-reveal>
+        <h2 class="section__heading">Las capturas</h2>
+        <ul class="gallery">
+            <li>
+              <button class="gallery__item" type="button" data-lightbox>
+                <img src="../src/img/gm1.png"
+                     alt="GoodMovies — captura 1 de 6"
+                     width="1920" height="1020" loading="lazy" decoding="async">
+              </button>
+            </li>
+            <li>
+              <button class="gallery__item" type="button" data-lightbox>
+                <img src="../src/img/gm2.png"
+                     alt="GoodMovies — captura 2 de 6"
+                     width="1920" height="1020" loading="lazy" decoding="async">
+              </button>
+            </li>
+            <li>
+              <button class="gallery__item" type="button" data-lightbox>
+                <img src="../src/img/gm3.png"
+                     alt="GoodMovies — captura 3 de 6"
+                     width="1920" height="1020" loading="lazy" decoding="async">
+              </button>
+            </li>
+            <li>
+              <button class="gallery__item" type="button" data-lightbox>
+                <img src="../src/img/gm4.png"
+                     alt="GoodMovies — captura 4 de 6"
+                     width="1920" height="1020" loading="lazy" decoding="async">
+              </button>
+            </li>
+            <li>
+              <button class="gallery__item" type="button" data-lightbox>
+                <img src="../src/img/gm5.png"
+                     alt="GoodMovies — captura 5 de 6"
+                     width="1920" height="1020" loading="lazy" decoding="async">
+              </button>
+            </li>
+            <li>
+              <button class="gallery__item" type="button" data-lightbox>
+                <img src="../src/img/gm6.png"
+                     alt="GoodMovies — captura 6 de 6"
+                     width="1920" height="1020" loading="lazy" decoding="async">
+              </button>
+            </li>
+        </ul>
+      </section>
+
+      <section data-reveal>
+        <h2 class="section__heading">El problema</h2>
+          <p class="prose">Necesitaba un proyecto donde practicar el ciclo completo: crear, leer, actualizar y borrar, con sesiones reales y permisos distintos según el tipo de usuario. Una plataforma de streaming da todo eso de forma natural.</p>
+      </section>
+
+      <section data-reveal>
+        <h2 class="section__heading">Qué construí</h2>
+          <p class="prose">Construí un catálogo de películas con cuentas de usuario y un flujo de suscripción simulado. No hay pagos reales, pero sí facturación, estados de cuenta y control de acceso según el rol.</p>
+      </section>
+
+      <section data-reveal>
+        <h2 class="section__heading">Objetivos</h2>
+        <ul class="list">
+          <li>Implementar operaciones CRUD completas sobre PHP y MySQL.</li>
+          <li>Simular un flujo de suscripción con autenticación de usuarios.</li>
+          <li>Diseñar una interfaz que funcione en distintos tamaños de pantalla.</li>
+        </ul>
+      </section>
+
+      <section data-reveal>
+        <h2 class="section__heading">Retos técnicos</h2>
+          <p class="prose">La parte delicada fue la gestión de sesiones. Usé tokens de autenticación básicos, validación de formularios y consultas preparadas, y organicé las tablas pensando en poder ampliar el catálogo después.</p>
+      </section>
+
+      <section data-reveal>
+        <h2 class="section__heading">Qué me llevo</h2>
+          <p class="prose">Es el proyecto donde asenté las bases: sesiones, roles y consultas preparadas. Todo lo que vino después se apoya en esto.</p>
+          <p class="prose">Si lo retomara, añadiría recomendaciones según el historial de visualización y una pasarela de pago real.</p>
+      </section>
+
+      <nav class="project-nav" aria-label="Otros proyectos">
+        <a class="project-nav__link" href="proyecto-byb.html">
+          <span class="project-nav__dir">Anterior</span>
+          <span class="project-nav__name">B&amp;B Turismo y Negocios</span>
+        </a>
+        <a class="project-nav__link project-nav__link--next" href="proyecto-siticolombia.html">
+          <span class="project-nav__dir">Siguiente</span>
+          <span class="project-nav__name">SITI Colombia</span>
+        </a>
+      </nav>
     </div>
   </main>
 
-    <!-- Botón flotante de WhatsApp con Tooltip -->
-    <a href="https://wa.me/573045239856" target="_blank" 
-    class="group fixed bottom-6 right-6 bg-green-600 text-white text-3xl 
-            w-14 h-14 flex items-center justify-center rounded-full 
-            shadow-lg hover:bg-green-700 transition z-50">
-    <i class="fab fa-whatsapp"></i>
+  <a class="float-wa" href="https://wa.me/573045239856" target="_blank" rel="noopener noreferrer">
+    <svg aria-hidden="true"><use href="../src/img/icons.svg#i-whatsapp"></use></svg>
+    <span class="visually-hidden">Escríbeme por WhatsApp (se abre en una pestaña nueva)</span>
+    <span class="float-wa__tip" aria-hidden="true">Chatea conmigo</span>
+  </a>
 
-    <!-- Tooltip -->
-    <span class="absolute right-full mr-3 bottom-1/2 translate-y-1/2 
-                bg-gray-800 text-white text-sm px-3 py-1 rounded-lg 
-                opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-        💬 Chatea conmigo en WhatsApp
-    </span>
-    </a>
-
-  <!-- Footer -->
-  <footer class="bg-white border-t mt-12">
-    <div class="max-w-6xl mx-auto px-6 py-6 text-center text-gray-500 text-sm">
-      © 2025 Camilo Pacheco. Todos los derechos reservados.
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div class="site-footer__top">
+        <p class="site-footer__word">Hablemos.</p>
+        <ul class="social">
+          <li>
+            <a class="social__link" href="https://www.linkedin.com/in/camilo-pacheco-979b18337/" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="../src/img/icons.svg#i-linkedin"></use></svg>
+              <span class="visually-hidden">LinkedIn (se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+          <li>
+            <a class="social__link" href="https://github.com/cp327" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="../src/img/icons.svg#i-github"></use></svg>
+              <span class="visually-hidden">GitHub (se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+          <li>
+            <a class="social__link" href="https://wa.me/573045239856" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="../src/img/icons.svg#i-whatsapp"></use></svg>
+              <span class="visually-hidden">WhatsApp (se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span data-anio>2026</span> Camilo Pacheco</p>
+        <p class="site-footer__note">Cartagena de Indias, Colombia</p>
+      </div>
     </div>
   </footer>
 
-  <!-- Modal global -->
-<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50 transition-opacity duration-300">
-  <span class="absolute top-6 right-8 text-white text-3xl cursor-pointer" onclick="closeModal()">&times;</span>
-  <button onclick="prevImage()" class="absolute left-4 text-white text-4xl font-bold px-3 py-1 bg-black bg-opacity-40 rounded-full hover:bg-opacity-70">&larr;</button>
-  <button onclick="nextImage()" class="absolute right-4 text-white text-4xl font-bold px-3 py-1 bg-black bg-opacity-40 rounded-full hover:bg-opacity-70">&rarr;</button>
-  <img id="modalImage" src="" class="max-w-full max-h-[80vh] rounded-lg shadow-lg border-4 border-white transform scale-90 opacity-0 transition duration-300">
-</div>
+  <!-- Lightbox. <dialog> aporta de forma nativa el atrapado del foco, el
+       cierre con Esc, el fondo (::backdrop) y la devolución del foco. -->
+  <dialog class="lightbox" id="lightbox" aria-label="Visor de capturas">
+    <button class="lightbox__btn lightbox__btn--close" type="button"
+            data-lightbox-close aria-label="Cerrar el visor">
+      <svg aria-hidden="true"><use href="../src/img/icons.svg#i-close"></use></svg>
+    </button>
+    <button class="lightbox__btn lightbox__btn--prev" type="button"
+            data-lightbox-prev aria-label="Imagen anterior">
+      <svg aria-hidden="true"><use href="../src/img/icons.svg#i-chevron-left"></use></svg>
+    </button>
+    <button class="lightbox__btn lightbox__btn--next" type="button"
+            data-lightbox-next aria-label="Imagen siguiente">
+      <svg aria-hidden="true"><use href="../src/img/icons.svg#i-chevron-right"></use></svg>
+    </button>
 
-<script src="../src/js/gallery.js"></script>
-
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" data-lightbox-img src="" alt="">
+      <figcaption class="lightbox__caption">
+        <span data-lightbox-caption></span>
+        <span class="lightbox__count" data-lightbox-count></span>
+      </figcaption>
+    </figure>
+  </dialog>
 </body>
 </html>
