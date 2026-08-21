@@ -112,6 +112,31 @@
 
 .brand:hover { color: var(--color-text); }
 
+/* La marca "CP" recortada del logotipo original, sin su fondo gris.
+   `align-self: center` porque el resto de .brand se alinea por la línea base
+   para colocar el punto, y una imagen sobre la línea base cuelga por debajo. */
+.brand__logo {
+  align-self: center;
+  height: 1.4em;
+  width: auto;
+  margin-right: 0.45em;
+  transition: transform var(--duration-base) var(--ease-out-quint);
+}
+
+.brand:hover .brand__logo { transform: scale(1.06); }
+
+/* El verde del logotipo es más oscuro que el de marca y sobre el fondo casi
+   negro del tema oscuro se apaga. Un realce de luminosidad lo devuelve sin
+   tener que tocar el archivo ni mantener dos versiones. */
+:root:not([data-theme="light"]) .brand__logo { filter: brightness(1.45); }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .brand__logo { filter: none; }
+}
+
+:root[data-theme="dark"] .brand__logo { filter: brightness(1.45); }
+:root[data-theme="light"] .brand__logo { filter: none; }
+
 .brand__dot {
   width: 0.32em;
   height: 0.32em;
@@ -418,6 +443,18 @@
   margin-top: var(--space-section);
 }
 
+/* `* + *` solo separa ENTRE hermanos, así que el primer hijo de .page se
+   quedaba sin nada arriba. En la portada da igual —el primer hijo es el hero,
+   que trae su propio aire—, pero en las vistas de proyecto el primer hijo es
+   "Las capturas" y quedaba pegado al borde de la franja verde, a 0px.
+
+   No se usa --space-section (160px en escritorio): esa es la separación entre
+   secciones ya empezadas. Aquí se sale de una franja de color hacia el primer
+   titular, y el salto de color ya hace parte del trabajo de separar. */
+.page-hero + .page {
+  padding-top: clamp(var(--space-16), 7vw, var(--space-24));
+}
+
 .section__head {
   display: grid;
   gap: var(--space-4);
@@ -461,8 +498,16 @@
    retrato baja respecto a la línea superior para romper el eje.
    ========================================================================== */
 
+/* El aire superior es corto a propósito. Antes era clamp(3rem, 8vw, 6rem), que
+   en escritorio daba 96px entre el header y la línea de datos, y 150px hasta el
+   titular: una banda vacía que no separaba nada. La separación generosa del
+   sistema es la de ENTRE secciones; el header es una barra fina, no una
+   sección, y el hero tiene que leerse pegado al borde superior de la página.
+
+   Por debajo de ~24px la línea de datos queda rozando el header, que en reposo
+   no tiene borde: ahí el hero deja de respirar. */
 .hero {
-  padding-block: clamp(var(--space-12), 8vw, var(--space-24)) 0;
+  padding-block: clamp(var(--space-6), 2.5vw, var(--space-10)) 0;
 }
 
 .hero__grid {
@@ -779,6 +824,139 @@
   align-items: center;
   gap: var(--space-3) var(--space-5);
   margin-top: var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   8b. PROYECTOS SECUNDARIOS
+   --------------------------------------------------------------------------
+   Con ocho proyectos, ocho filas a sangre convierten la portada en un scroll
+   sin final y le quitan peso justo a los que deben dominar. Los cuatro
+   restantes bajan a una lista.
+
+   Lista con reglas, no rejilla de tarjetas: la rejilla de tarjetas idénticas
+   está marcada como anti-referencia en PRODUCT.md, y además volvería a poner
+   a los cuatro secundarios al mismo nivel visual del que se les quiso bajar.
+   La miniatura se queda pequeña a propósito.
+   -------------------------------------------------------------------------- */
+
+.projects-more {
+  margin-top: clamp(var(--space-20), 10vw, var(--space-32));
+}
+
+.projects-more__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-6);
+  border-bottom: var(--border-thin) solid var(--color-border-strong, var(--color-border));
+}
+
+.projects-more__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  font-stretch: 94%;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+}
+
+.projects-more__note {
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+.brief-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.brief {
+  display: grid;
+  gap: var(--space-4) var(--space-6);
+  padding: var(--space-8) 0;
+  border-bottom: var(--border-thin) solid var(--color-border);
+}
+
+@media (min-width: 48em) {
+  .brief {
+    grid-template-columns: 12rem minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (min-width: 62em) {
+  .brief { grid-template-columns: 15rem minmax(0, 1fr); }
+}
+
+.brief__media {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-subtle);
+  border: var(--border-thin) solid var(--color-border);
+}
+
+.brief__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--duration-slower) var(--ease-out-quint);
+}
+
+.brief:hover .brief__img { transform: scale(1.04); }
+
+.brief__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.brief__index {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent);
+  letter-spacing: var(--tracking-wide);
+}
+
+.brief__title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  font-stretch: 94%;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+}
+
+.brief__desc {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  max-width: 58ch;
+}
+
+/* El mismo ancho máximo que la descripción. Sin él, en pantallas anchas el
+   stack se va al borde derecho del contenedor mientras el texto termina
+   mucho antes, y los dos dejan de leerse como parte de la misma ficha. */
+.brief__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+  margin-top: var(--space-5);
+  max-width: 58ch;
+}
+
+.brief__stack {
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  font-weight: var(--weight-semibold);
 }
 
 /* ==========================================================================
@@ -1227,8 +1405,14 @@ textarea.field__control {
    Lleva la ficha de datos dentro, no solo el título. Es lo que convierte la
    página en un caso de trabajo y no en un artículo de blog: quien llega
    desde la portada ve rol, periodo, estado y stack sin bajar. */
+/* Asimétrica a propósito: el aire de arriba es la mitad del de abajo.
+   Simétrica a 96px dejaba la misma banda vacía que había en el hero de la
+   portada — el título del proyecto aparecía a 96px del header sin nada en
+   medio. Un titular de portada se apoya en el borde superior; el aire que
+   necesita va debajo, separándolo de la ficha de datos. */
 .page-hero {
-  padding-block: clamp(var(--space-16), 9vw, var(--space-24));
+  padding-block: clamp(var(--space-8), 3.5vw, var(--space-12))
+                 clamp(var(--space-12), 7vw, var(--space-20));
   background-color: var(--color-brand-surface);
   background-image: linear-gradient(
     160deg,

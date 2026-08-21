@@ -110,11 +110,36 @@ el texto claro sobre fondo oscuro se percibe más fino y pide más aire.
 - Separación entre secciones `clamp(5rem, 11vw, 10rem)`. Generosa a propósito.
 - **Hero asimétrico**: 1.45fr para el texto, 0.55fr para el retrato, que además
   baja 4rem respecto a la línea superior para romper el eje.
+- **El aire sobre el hero es corto**: `clamp(1.5rem, 2.5vw, 2.5rem)`, unos 38px
+  en escritorio. La separación generosa del sistema es la de *entre* secciones;
+  el header es una barra fina, no una sección, y aplicarle la misma escala
+  dejaba 96px hasta la línea de datos y 150px hasta el titular — una banda vacía
+  que no separaba nada y empujaba los botones fuera de la primera pantalla.
+  El suelo de 1.5rem no es arbitrario: por debajo de ~24px la línea de datos
+  roza el header, que en reposo no tiene borde.
 - **Proyectos en filas alternas**, no en rejilla de tarjetas. Las filas pares
   invierten el orden de la imagen.
 - **Franjas a sangre completa por estructura**, nunca con
   `margin-inline: calc(50% - 50vw)`: ese truco desborda exactamente el ancho de
   la barra de scroll y provoca desplazamiento horizontal.
+
+### Dos niveles de proyecto
+
+Con ocho proyectos, ocho filas a sangre completa convierten la portada en un
+scroll sin final y le quitan peso justo a los dos que deben dominar. Los cuatro
+destacados conservan la fila alterna; los otros cuatro bajan a `.brief`.
+
+`.brief` es **una lista separada por reglas, no una rejilla de tarjetas**. La
+tarjeta era el reflejo evidente y habría sido un error doble: es la
+anti-referencia principal de [PRODUCT.md](PRODUCT.md), y además cuatro tarjetas
+idénticas les devuelven exactamente el peso visual que se les quería quitar.
+
+| Pieza | Decisión |
+|---|---|
+| Miniatura | 16/10 y pequeña a propósito: `12rem` desde 48em, `15rem` desde 62em |
+| Descripción | `max-width: 58ch` |
+| Pie (enlace + stack) | **El mismo `58ch`**. Sin ese tope, en pantallas anchas el stack se va al borde derecho del contenedor mientras el texto termina mucho antes, y los dos dejan de leerse como parte de la misma ficha |
+| Por debajo de 48em | Una sola columna, sin `grid-template-columns`. No hay ningún ancho fijo en toda la pieza |
 
 ---
 
@@ -151,6 +176,17 @@ Misma dirección que la portada, con tres decisiones propias:
 - **La ficha de datos vive en la cabecera verde.** Rol, periodo, estado y stack
   se ven sin bajar. Es lo que convierte la página en un caso de trabajo y no en
   un artículo de blog.
+- **La franja verde lleva el aire repartido de forma asimétrica**: 48px arriba y
+  80px abajo en escritorio. Simétrica a 96px repetía el problema del hero de la
+  portada — el título del proyecto aparecía a 96px del header sin nada en medio.
+  Un titular de portada se apoya en el borde superior; el aire que necesita va
+  debajo, separándolo de la ficha.
+- **El primer titular de la página tiene su propia separación de la franja.**
+  El ritmo entre secciones lo pone `.page > * + *`, y `* + *` solo separa
+  *entre* hermanos: el primer hijo se quedaba sin nada y «Las capturas» tocaba
+  el borde verde a 0px. Lo resuelve `.page-hero + .page`. No usa
+  `--space-section` (160px) sino `clamp(4rem, 7vw, 6rem)`: se sale de una franja
+  de color, y el salto de color ya hace parte del trabajo de separar.
 - **Las capturas van primero**, justo después de la cabecera, y la primera
   ocupa el ancho completo. Son la única prueba de que el sistema existe;
   enterrarlas al final desaprovecha el activo más fuerte.
@@ -162,9 +198,27 @@ Misma dirección que la portada, con tres decisiones propias:
 
 ---
 
+## Sobre los textos alternativos
+
+El visor usa el `alt` de cada captura **como pie de foto** (`gallery.js` lo
+copia en el `figcaption`). Un `alt` genérico tipo «captura 3 de 6» no es solo
+una carencia de accesibilidad: sale escrito en pantalla debajo de la imagen.
+
+Las páginas nuevas —AG Identity, ArgosMonitors y Southern Roofing— ya describen
+lo que se ve en cada captura. Las cinco anteriores siguen con el texto
+numerado.
+
+---
+
 ## Pendiente
 
-- Textos `alt` más específicos en las capturas de `WA1`, `byb1` y `gm1`.
+- `alt` descriptivos en las capturas de **SITI Colombia, AgroIA, WhatsApp, B&B y
+  GoodMovies**, que aún usan «— captura N de M» y por tanto lo muestran como pie
+  en el visor.
 - Botón manual de tema. La arquitectura ya lo soporta: basta escribir
   `data-theme` en `<html>` y guardarlo en `localStorage`.
 - Scroll-spy en el nav; el CSS ya contempla `.site-nav__link[aria-current]`.
+- Las capturas nuevas son **JPEG de ~1536×674**, más anchas que la proporción
+  `1920/1020` de `.project__img`, así que se recortan por abajo. Se ve bien
+  porque el recorte respeta `object-position: top center`, pero convertirlas a
+  WebP y a la proporción correcta ahorraría peso y evitaría el recorte.

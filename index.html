@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Camilo Pacheco — Desarrollador Web</title>
-    <meta name="description" content="Desarrollador web en Cartagena de Indias. Tres años construyendo sistemas internos para operaciones reales: cronogramas de campo, control de acceso para más de 4.000 empleados y predicción de cultivos con machine learning.">
+    <meta name="description" content="Desarrollador web en Cartagena de Indias. Tres años construyendo sistemas internos para operaciones reales: identificación biométrica sin conexión, cumplimiento normativo, cronogramas de campo y predicción de cultivos con machine learning.">
     <link rel="canonical" href="https://cp327.github.io/portafolio/">
 
     <!-- Open Graph: lo que se ve al compartir el enlace en LinkedIn -->
@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&display=swap" rel="stylesheet">
 
-    <link rel="icon" href="src/img/icono.png" type="image/png">
+    <link rel="icon" href="src/img/favicon.png" type="image/png">
 
     <!-- El orden importa: tokens define las variables · reset normaliza ·
          base estiliza las etiquetas · components las piezas con nombre. -->
@@ -50,7 +50,7 @@
         "https://github.com/cp327",
         "https://www.linkedin.com/in/camilo-pacheco-979b18337/"
       ],
-      "knowsAbout": ["PHP", "JavaScript", "Python", "C#", "SQL", "MySQL", "HTML", "CSS", "Git", "Integración de APIs"]
+      "knowsAbout": ["PHP", "Laravel", "JavaScript", "TypeScript", "React", "Python", "C#", ".NET", "SQL", "MySQL", "HTML", "CSS", "Git", "Integración de APIs"]
     }
     </script>
 </head>
@@ -60,7 +60,7 @@
     <header class="site-header">
         <div class="wrapper site-header__inner">
             <a class="brand" href="#inicio">
-                Camilo Pacheco<span class="brand__dot" aria-hidden="true"></span>
+                <img class="brand__logo" src="src/img/logo.png" alt="" width="144" height="96" decoding="async">Camilo Pacheco<span class="brand__dot" aria-hidden="true"></span>
             </a>
 
             <button
@@ -110,8 +110,9 @@
 
                     <p class="hero__lead" data-reveal>
                         Tres años construyendo y manteniendo software para operaciones
-                        reales: cronogramas de campo en el sector hotelero, control de
-                        acceso biométrico para más de 4.000 empleados y predicción de
+                        reales: identificación por huella dactilar en canchas sin
+                        conexión, cumplimiento normativo para empresas colombianas,
+                        cronogramas de campo en el sector hotelero y predicción de
                         cultivos con machine learning.
                     </p>
 
@@ -178,14 +179,90 @@
              ============================================================ -->
         <section class="wrapper" id="trabajo">
             <div class="section__head" data-reveal>
-                <h2 class="section__title">Cinco sistemas, cinco problemas distintos</h2>
+                <h2 class="section__title">Ocho sistemas, ocho problemas distintos</h2>
                 <p class="section__lead">
-                    Tres están en producción con usuarios reales. Los otros dos nacieron
-                    para aprender algo concreto y se quedaron como prueba de ello.
+                    Los cuatro primeros son los que mejor explican cómo trabajo. Debajo
+                    quedan otros cuatro: un cliente en Estados Unidos, dos encargos más
+                    pequeños y el proyecto con el que aprendí el oficio.
                 </p>
             </div>
 
             <div class="projects">
+
+                <article class="project" data-reveal>
+                    <div class="project__media">
+                        <img class="project__img"
+                             src="src/img/ag1.jpg"
+                             alt="Escritorio del panel de AG Identity: 8 equipos, 206 jugadores y 89,8% de huellas enroladas"
+                             width="1536" height="674" loading="lazy" decoding="async">
+                    </div>
+                    <div>
+                        <span class="project__index">01</span>
+                        <h3 class="project__title">AG Identity</h3>
+                        <p class="project__desc">
+                            En un torneo de cientos de jugadores, comprobar que quien salta
+                            a la cancha es quien está inscrito se hacía con papel y buena fe.
+                            Construimos un sistema que lo verifica por huella dactilar
+                            <em>sin conexión</em>, porque en una cancha no hay internet: panel
+                            web para enrolar, API, aplicación de escritorio y un lector USB.
+                        </p>
+                        <dl class="project__meta">
+                            <div class="project__row"><dt>Rol</dt><dd>Desarrollo conjunto, en pareja</dd></div>
+                            <div class="project__row"><dt>Periodo</dt><dd>2026</dd></div>
+                            <div class="project__row"><dt>Estado</dt><dd>En producción en gestiondeportivaag.com &middot; app de cancha en validación</dd></div>
+                            <div class="project__row"><dt>Stack</dt><dd>Laravel, Filament, MySQL, .NET MAUI, C#, Futronic FS88</dd></div>
+                        </dl>
+                        <div class="project__actions">
+                            <a class="link-arrow" href="views/proyecto-ag-identity.html">
+                                Ver el caso completo
+                                <svg aria-hidden="true"><use href="src/img/icons.svg#i-arrow-right"></use></svg>
+                            </a>
+                            <a class="btn btn--outline" href="https://github.com/jorge0630/AG-IDENTIFY" target="_blank" rel="noopener noreferrer">
+                                <svg class="btn__icon" aria-hidden="true"><use href="src/img/icons.svg#i-github"></use></svg>
+                                Código
+                                <span class="visually-hidden">de AG Identity, repositorio privado (se abre en una pestaña nueva)</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project" data-reveal>
+                    <div class="project__media">
+                        <img class="project__img"
+                             src="src/img/argos1.jpg"
+                             alt="Panel de ArgosMonitors con el resumen de cumplimiento: 34 contrapartes activas y su reparto de riesgo"
+                             width="1536" height="674" loading="lazy" decoding="async">
+                    </div>
+                    <div>
+                        <span class="project__index">02</span>
+                        <h3 class="project__title">ArgosMonitors</h3>
+                        <p class="project__desc">
+                            Una empresa obligada a cumplir SARLAFT tiene que demostrar ante
+                            una auditoría que evaluó a cada contraparte antes de vincularla.
+                            Sin sistema, eso vive en carpetas de Excel. Aquí la norma
+                            <em>es</em> la lógica: ocho tipos de hora que salen del Código
+                            Sustantivo del Trabajo y puntajes de riesgo que se congelan en
+                            el tiempo para poder responder por el pasado.
+                        </p>
+                        <dl class="project__meta">
+                            <div class="project__row"><dt>Rol</dt><dd>Desarrollo conjunto y rediseño del panel</dd></div>
+                            <div class="project__row"><dt>Periodo</dt><dd>2026</dd></div>
+                            <div class="project__row"><dt>Estado</dt><dd>Demo funcional, demo.argosmonitors.com</dd></div>
+                            <div class="project__row"><dt>Stack</dt><dd>Laravel, Inertia, React, TypeScript, Tailwind</dd></div>
+                        </dl>
+                        <div class="project__actions">
+                            <a class="link-arrow" href="views/proyecto-argosmonitors.html">
+                                Ver el caso completo
+                                <svg aria-hidden="true"><use href="src/img/icons.svg#i-arrow-right"></use></svg>
+                            </a>
+                            <a class="btn btn--outline" href="https://github.com/jorge0630/ArgosRisk" target="_blank" rel="noopener noreferrer">
+                                <svg class="btn__icon" aria-hidden="true"><use href="src/img/icons.svg#i-github"></use></svg>
+                                Código
+                                <span class="visually-hidden">de ArgosMonitors, repositorio privado (se abre en una pestaña nueva)</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
 
                 <article class="project" data-reveal>
                     <div class="project__media">
@@ -195,7 +272,7 @@
                              width="1920" height="1020" loading="lazy" decoding="async">
                     </div>
                     <div>
-                        <span class="project__index">01</span>
+                        <span class="project__index">03</span>
                         <h3 class="project__title">SITI Colombia</h3>
                         <p class="project__desc">
                             Los técnicos recibían las tareas por teléfono y el seguimiento
@@ -232,7 +309,7 @@
                              width="1920" height="1020" loading="lazy" decoding="async">
                     </div>
                     <div>
-                        <span class="project__index">02</span>
+                        <span class="project__index">04</span>
                         <h3 class="project__title">AgroIA</h3>
                         <p class="project__desc">
                             Un agricultor no consulta un modelo estadístico, pero sí
@@ -260,110 +337,133 @@
                     </div>
                 </article>
 
-                <article class="project" data-reveal>
-                    <div class="project__media">
-                        <img class="project__img"
-                             src="src/img/WA1.png"
-                             alt="Recordatorio automático enviado por WhatsApp a un cliente desde el calendario de la empresa"
-                             width="1385" height="971" loading="lazy" decoding="async">
-                    </div>
-                    <div>
-                        <span class="project__index">03</span>
-                        <h3 class="project__title">Recordatorios automáticos por WhatsApp</h3>
-                        <p class="project__desc">
-                            Alguien tenía que revisar el calendario cada mañana y escribir
-                            los recordatorios a mano. Conecté Google Calendar con la API de
-                            WhatsApp Business a través de Apps Script, con un registro de
-                            cada envío para poder auditarlo.
-                        </p>
-                        <dl class="project__meta">
-                            <div class="project__row"><dt>Rol</dt><dd>Integración de APIs y automatización</dd></div>
-                            <div class="project__row"><dt>Periodo</dt><dd>2025</dd></div>
-                            <div class="project__row"><dt>Estado</dt><dd>En producción</dd></div>
-                            <div class="project__row"><dt>Stack</dt><dd>Google Apps Script, Calendar API, Meta for Developers</dd></div>
-                        </dl>
-                        <div class="project__actions">
-                            <a class="link-arrow" href="views/proyecto-whatsapp.html">
-                                Ver el caso completo
-                                <svg aria-hidden="true"><use href="src/img/icons.svg#i-arrow-right"></use></svg>
-                            </a>
-                            <a class="btn btn--outline" href="https://github.com/cp327/automatizacionWAProyecto" target="_blank" rel="noopener noreferrer">
-                                <svg class="btn__icon" aria-hidden="true"><use href="src/img/icons.svg#i-github"></use></svg>
-                                Código
-                                <span class="visually-hidden">del proyecto de WhatsApp (se abre en una pestaña nueva)</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
+            </div>
 
-                <article class="project" data-reveal>
-                    <div class="project__media">
-                        <img class="project__img"
-                             src="src/img/byb1.png"
-                             alt="Portada del sitio de B&amp;B Turismo y Negocios, consultora del sector hotelero"
-                             width="1920" height="1020" loading="lazy" decoding="async">
-                    </div>
-                    <div>
-                        <span class="project__index">04</span>
-                        <h3 class="project__title">B&amp;B Turismo y Negocios</h3>
-                        <p class="project__desc">
-                            Una consultora que hacía cuatro cosas distintas y no lograba
-                            explicarlas en una sola página. El trabajo fue tanto de
-                            estructura de contenido como de desarrollo.
-                        </p>
-                        <dl class="project__meta">
-                            <div class="project__row"><dt>Rol</dt><dd>Desarrollo web</dd></div>
-                            <div class="project__row"><dt>Estado</dt><dd>En producción</dd></div>
-                            <div class="project__row"><dt>Stack</dt><dd>PHP, MySQL, JavaScript</dd></div>
-                        </dl>
-                        <div class="project__actions">
-                            <a class="link-arrow" href="views/proyecto-byb.html">
-                                Ver el caso completo
-                                <svg aria-hidden="true"><use href="src/img/icons.svg#i-arrow-right"></use></svg>
-                            </a>
-                            <a class="btn btn--outline" href="https://github.com/cp327/BBPFTOProyecto" target="_blank" rel="noopener noreferrer">
-                                <svg class="btn__icon" aria-hidden="true"><use href="src/img/icons.svg#i-github"></use></svg>
-                                Código
-                                <span class="visually-hidden">de B&amp;B (se abre en una pestaña nueva)</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
+            <!-- ========================================================
+                 SECUNDARIOS
+                 Lista con reglas, no rejilla de tarjetas: bajarlos de
+                 nivel y luego darle a cada uno una tarjeta idéntica
+                 sería devolverles el peso que se les quitó.
+                 ======================================================== -->
+            <div class="projects-more">
+                <div class="projects-more__head" data-reveal>
+                    <h3 class="projects-more__title">También he construido</h3>
+                    <p class="projects-more__note">Cuatro proyectos más, con su caso completo</p>
+                </div>
 
-                <article class="project" data-reveal>
-                    <div class="project__media">
-                        <img class="project__img"
-                             src="src/img/gm1.png"
-                             alt="Catálogo de películas de GoodMovies, con el acceso a la suscripción"
-                             width="1920" height="1020" loading="lazy" decoding="async">
-                    </div>
-                    <div>
-                        <span class="project__index">05</span>
-                        <h3 class="project__title">GoodMovies</h3>
-                        <p class="project__desc">
-                            Proyecto académico para practicar CRUD completo, sesiones y
-                            control de acceso por roles. Simula el flujo de suscripción de
-                            una plataforma de streaming, sin pagos reales.
-                        </p>
-                        <dl class="project__meta">
-                            <div class="project__row"><dt>Rol</dt><dd>Full stack</dd></div>
-                            <div class="project__row"><dt>Estado</dt><dd>Demo pública</dd></div>
-                            <div class="project__row"><dt>Stack</dt><dd>PHP, MySQL, JavaScript</dd></div>
-                        </dl>
-                        <div class="project__actions">
-                            <a class="link-arrow" href="views/proyecto-goodmovies.html">
-                                Ver el caso completo
-                                <svg aria-hidden="true"><use href="src/img/icons.svg#i-arrow-right"></use></svg>
-                            </a>
-                            <a class="btn btn--outline" href="https://github.com/cp327/goodmoviesproyecto" target="_blank" rel="noopener noreferrer">
-                                <svg class="btn__icon" aria-hidden="true"><use href="src/img/icons.svg#i-github"></use></svg>
-                                Código
-                                <span class="visually-hidden">de GoodMovies (se abre en una pestaña nueva)</span>
-                            </a>
+                <ul class="brief-list">
+                    <li class="brief" data-reveal>
+                        <div class="brief__media">
+                            <img class="brief__img"
+                                 src="src/img/str1.jpg"
+                                 alt="Portada de Southern Roofing &amp; Remodeling, con el titular de servicios y el botón de presupuesto"
+                                 width="1536" height="674" loading="lazy" decoding="async">
                         </div>
-                    </div>
-                </article>
+                        <div>
+                            <div class="brief__head">
+                                <span class="brief__index">05</span>
+                                <h4 class="brief__title">Southern Roofing &amp; Remodeling</h4>
+                            </div>
+                            <p class="brief__desc">
+                                Cliente en Texas. El sitio corría sobre WordPress y no podía
+                                tocarse: había que conservar las URL por SEO. En vez de
+                                reemplazarlo, inyecté cuatro páginas nuevas por encima del
+                                tema, con todas las clases bajo un prefijo propio para no
+                                chocar con nada.
+                            </p>
+                            <div class="brief__foot">
+                                <a class="link-arrow" href="views/proyecto-southern-roofing.html">
+                                    Ver el caso
+                                    <svg aria-hidden="true"><use href="src/img/icons.svg#i-arrow-right"></use></svg>
+                                </a>
+                                <span class="brief__stack">WordPress · CSS · JavaScript</span>
+                            </div>
+                        </div>
+                    </li>
 
+                    <li class="brief" data-reveal>
+                        <div class="brief__media">
+                            <img class="brief__img"
+                                 src="src/img/WA1.png"
+                                 alt="Recordatorio automático recibido por WhatsApp, generado desde el calendario de la empresa"
+                                 width="1385" height="971" loading="lazy" decoding="async">
+                        </div>
+                        <div>
+                            <div class="brief__head">
+                                <span class="brief__index">06</span>
+                                <h4 class="brief__title">Recordatorios automáticos por WhatsApp</h4>
+                            </div>
+                            <p class="brief__desc">
+                                Alguien revisaba el calendario cada mañana y escribía los
+                                recordatorios a mano. Conecté Google Calendar con la API de
+                                WhatsApp Business. Sin interfaz, sin base de datos y sin
+                                servidor: las tres piezas ya existían.
+                            </p>
+                            <div class="brief__foot">
+                                <a class="link-arrow" href="views/proyecto-whatsapp.html">
+                                    Ver el caso
+                                    <svg aria-hidden="true"><use href="src/img/icons.svg#i-arrow-right"></use></svg>
+                                </a>
+                                <span class="brief__stack">Apps Script · Calendar API · Meta</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="brief" data-reveal>
+                        <div class="brief__media">
+                            <img class="brief__img"
+                                 src="src/img/byb1.png"
+                                 alt="Portada del sitio de B&amp;B Turismo y Negocios, consultora del sector hotelero"
+                                 width="1920" height="1020" loading="lazy" decoding="async">
+                        </div>
+                        <div>
+                            <div class="brief__head">
+                                <span class="brief__index">07</span>
+                                <h4 class="brief__title">B&amp;B Turismo y Negocios</h4>
+                            </div>
+                            <p class="brief__desc">
+                                Una consultora que hacía cuatro cosas distintas y no lograba
+                                explicarlas en una página. Además del sitio, tiene panel
+                                propio: el cliente publica en su feed sin llamarme.
+                            </p>
+                            <div class="brief__foot">
+                                <a class="link-arrow" href="views/proyecto-byb.html">
+                                    Ver el caso
+                                    <svg aria-hidden="true"><use href="src/img/icons.svg#i-arrow-right"></use></svg>
+                                </a>
+                                <span class="brief__stack">PHP · MySQL · JavaScript</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="brief" data-reveal>
+                        <div class="brief__media">
+                            <img class="brief__img"
+                                 src="src/img/gm1.png"
+                                 alt="Catálogo de películas de GoodMovies, con el acceso a la suscripción"
+                                 width="1920" height="1020" loading="lazy" decoding="async">
+                        </div>
+                        <div>
+                            <div class="brief__head">
+                                <span class="brief__index">08</span>
+                                <h4 class="brief__title">GoodMovies</h4>
+                            </div>
+                            <p class="brief__desc">
+                                El primero. Proyecto de formación en el SENA para practicar
+                                CRUD, sesiones y control de acceso por roles, con el mismo
+                                sistema visto desde tres papeles distintos: usuario,
+                                administrador y back-office.
+                            </p>
+                            <div class="brief__foot">
+                                <a class="link-arrow" href="views/proyecto-goodmovies.html">
+                                    Ver el caso
+                                    <svg aria-hidden="true"><use href="src/img/icons.svg#i-arrow-right"></use></svg>
+                                </a>
+                                <span class="brief__stack">PHP · MySQL · JavaScript</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -451,9 +551,13 @@
                     <h3 class="skills__heading">Con lo que trabajo</h3>
                     <ul class="skills__list">
                         <li class="tag">PHP</li>
+                        <li class="tag">Laravel</li>
                         <li class="tag">JavaScript</li>
+                        <li class="tag">TypeScript</li>
+                        <li class="tag">React</li>
                         <li class="tag">Python</li>
                         <li class="tag">C#</li>
+                        <li class="tag">.NET</li>
                         <li class="tag">SQL</li>
                         <li class="tag">MySQL</li>
                         <li class="tag">HTML</li>
