@@ -77,6 +77,27 @@ tratarse de texto grande.
 
 ---
 
+### La marca
+
+El logotipo es una pieza raster con textura desgastada, no un vector. Vive en
+`src/img/marca/` con su propio LEEME; aquí solo lo que afecta al sistema visual.
+
+Se usa en dos sitios y con dos recortes distintos:
+
+- **Navbar**: solo la marca (corona + monograma), en `#008A39`. Alta a 1.75em
+  porque es casi cuadrada y la corona ocupa el tercio superior: por debajo de
+  esa altura sus trazos finos se empastan.
+- **Pie**: la firma completa —marca, separador y «Camilo Pacheco / Software
+  Developer»— en casi blanco. Un pie es una despedida, y ahí una firma cierra
+  en vez de decorar. Va al 85% de opacidad para no competir con «Hablemos.».
+
+**El verde de marca no sirve sobre la franja verde.** `#008A39` sobre el fondo
+del pie da 1,64:1. De ahí que existan tres variantes de color y no una.
+
+El archivo original venía en `#49C102`, un verde amarillento. Se recoloreó al
+matiz de marca (150°) para que no desentonara. El recoloreado conserva el canal
+alfa y solo sustituye el RGB, lo que preserva la textura y los bordes suaves.
+
 ## Tipografía
 
 **Archivo**, una sola familia, variable en peso (400–800) y anchura (75–125).
@@ -122,6 +143,28 @@ el texto claro sobre fondo oscuro se percibe más fino y pide más aire.
 - **Franjas a sangre completa por estructura**, nunca con
   `margin-inline: calc(50% - 50vw)`: ese truco desborda exactamente el ancho de
   la barra de scroll y provoca desplazamiento horizontal.
+
+### Móvil
+
+Tres decisiones propias, todas medidas a 375px y comprobadas a 305px:
+
+- **El panel del menú va a `left/right: 0`, no a `-gutter`.** Su contexto de
+  posicionamiento es `.site-header__inner`, que *es* el `.wrapper`: su gutter es
+  `padding-inline`, así que su caja ya llega de borde a borde. Sacarlo otro
+  gutter lo hacía 40px más ancho que la pantalla, y eso producía **dos fallos a
+  la vez**: la página se arrastraba en horizontal y el texto de los enlaces caía
+  justo sobre el borde izquierdo, como si estuviera cortado.
+- **La ficha de datos apila la etiqueta sobre el valor.** A dos columnas la
+  etiqueta se comía 5.5rem de los ~21rem disponibles y los valores largos caían
+  en tres líneas quebradas. Las dos columnas vuelven a partir de 48em.
+- **Una regla separa un proyecto del siguiente.** En una sola columna la
+  separación no basta: la captura del proyecto siguiente parece pertenecer al
+  bloque anterior. Desaparece a partir de 62em, donde las filas alternan lado y
+  el cambio de eje ya marca el corte.
+
+En las vistas de proyecto, «Volver al portafolio» se recorta a «Volver» por
+debajo de 30em: con la marca completa al lado, el texto entero partía el header
+en dos líneas.
 
 ### Dos niveles de proyecto
 

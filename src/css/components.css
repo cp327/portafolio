@@ -112,30 +112,26 @@
 
 .brand:hover { color: var(--color-text); }
 
-/* La marca "CP" recortada del logotipo original, sin su fondo gris.
+/* La marca (corona + CP) recortada del logotipo completo.
+
    `align-self: center` porque el resto de .brand se alinea por la línea base
-   para colocar el punto, y una imagen sobre la línea base cuelga por debajo. */
+   para colocar el punto, y una imagen sobre la línea base cuelga por debajo.
+
+   Alta —1.75em, no 1.4em— porque la marca es casi cuadrada y la corona ocupa
+   el tercio superior: a menos altura sus trazos finos se empastan.
+
+   Sin `filter` de corrección: el archivo está recoloreado a #008A39, que da
+   4,2:1 contra los dos fondos del sitio. El logotipo anterior era un verde
+   azulado que en tema oscuro se apagaba y pedía un realce de luminosidad. */
 .brand__logo {
   align-self: center;
-  height: 1.4em;
+  height: 1.75em;
   width: auto;
-  margin-right: 0.45em;
+  margin-right: 0.5em;
   transition: transform var(--duration-base) var(--ease-out-quint);
 }
 
 .brand:hover .brand__logo { transform: scale(1.06); }
-
-/* El verde del logotipo es más oscuro que el de marca y sobre el fondo casi
-   negro del tema oscuro se apaga. Un realce de luminosidad lo devuelve sin
-   tener que tocar el archivo ni mantener dos versiones. */
-:root:not([data-theme="light"]) .brand__logo { filter: brightness(1.45); }
-
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) .brand__logo { filter: none; }
-}
-
-:root[data-theme="dark"] .brand__logo { filter: brightness(1.45); }
-:root[data-theme="light"] .brand__logo { filter: none; }
 
 .brand__dot {
   width: 0.32em;
@@ -198,11 +194,23 @@
 
 /* --- Panel de navegación ----------------------------------------------- */
 
+/* `left/right: 0`, no `-gutter`.
+
+   El contexto de posicionamiento es `.site-header__inner`, que ES el propio
+   `.wrapper`: su gutter es `padding-inline`, así que su caja ya llega de borde
+   a borde de la pantalla. Sacarlo otro gutter hacia fuera lo hacía 40px más
+   ancho que el viewport, con dos consecuencias visibles en móvil: la página
+   se podía arrastrar hacia la derecha, y el texto de los enlaces —que lleva
+   `padding-inline: var(--gutter)`— caía justo sobre el borde izquierdo, como
+   si estuviera cortado.
+
+   Con 0 el panel mide exactamente el ancho de la pantalla y los enlaces
+   quedan alineados con la marca y con el resto del contenido. */
 .site-nav {
   position: absolute;
   top: 100%;
-  left: calc(var(--gutter) * -1);
-  right: calc(var(--gutter) * -1);
+  left: 0;
+  right: 0;
   padding: var(--space-2) 0;
   background-color: var(--color-surface);
   border-bottom: var(--border-thin) solid var(--color-border);
@@ -732,7 +740,21 @@
   align-items: center;
 }
 
+/* En una sola columna, la separación por sí sola no basta: la captura del
+   proyecto siguiente parece pertenecer al bloque anterior. Una regla marca el
+   corte sin añadir ruido. En escritorio sobra, porque las filas alternan lado
+   y el cambio de eje ya señala dónde empieza cada proyecto. */
+.project + .project {
+  padding-top: clamp(var(--space-10), 8vw, var(--space-16));
+  border-top: var(--border-thin) solid var(--color-border);
+}
+
 @media (min-width: 62em) {
+  .project + .project {
+    padding-top: 0;
+    border-top: 0;
+  }
+
   .project {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
     gap: var(--space-16);
@@ -797,12 +819,25 @@
   border-top: var(--border-thin) solid var(--color-border);
 }
 
+/* En móvil la etiqueta va ENCIMA del valor, no al lado.
+
+   A dos columnas, la etiqueta se comía 5.5rem de los ~21rem disponibles y
+   dejaba los valores largos en una columna estrecha: "En producción en
+   gestiondeportivaag.com · app de cancha en validación" caía en tres líneas
+   quebradas y la ficha entera se leía como un bloque desordenado. Apilando,
+   cada valor dispone del ancho completo. */
 .project__row {
   display: grid;
-  grid-template-columns: 5.5rem minmax(0, 1fr);
-  gap: var(--space-4);
-  align-items: baseline;
+  gap: var(--space-1);
   font-size: var(--text-sm);
+}
+
+@media (min-width: 48em) {
+  .project__row {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: baseline;
+  }
 }
 
 .project__row dt {
@@ -1307,6 +1342,25 @@ textarea.field__control {
 
 .social__link svg { width: 1.15rem; height: 1.15rem; }
 
+/* La firma completa —marca, separador y "Camilo Pacheco / Software Developer"—
+   firma el pie. Es el único sitio del portafolio donde el logotipo entero tiene
+   sentido: un pie es literalmente una despedida, y ahí una firma no decora,
+   cierra.
+
+   Va en la variante casi blanca (#EFFBF2) porque el pie es una franja verde:
+   cualquier verde de marca encima queda por debajo de 3:1 y se pierde. */
+.site-footer__sign {
+  padding-top: var(--space-10);
+}
+
+.site-footer__signature {
+  display: block;
+  width: min(20rem, 68%);
+  height: auto;
+  /* No es un titular: se apoya, no compite con "Hablemos." */
+  opacity: 0.85;
+}
+
 .site-footer__bottom {
   display: flex;
   flex-wrap: wrap;
@@ -1392,6 +1446,18 @@ textarea.field__control {
 }
 
 .header-link:hover { color: var(--color-accent); }
+
+/* En las vistas de proyecto el header lleva la marca completa y este enlace.
+   Por debajo de 30em no caben: "Volver al portafolio" se partía en dos líneas
+   pegado a la marca. Se recorta a "Volver", que con la flecha y el contexto
+   del enlace basta. */
+.header-link__more { display: none; }
+
+.header-link { white-space: nowrap; }
+
+@media (min-width: 30em) {
+  .header-link__more { display: inline; }
+}
 
 .header-link svg {
   width: 1em;

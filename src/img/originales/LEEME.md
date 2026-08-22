@@ -1,14 +1,23 @@
 # Originales
 
-`icono.png` — logotipo de origen, 1024x1024 y 1,4 MB, con fondo gris y halo
-verde. **No se sirve en el sitio**: era el favicon y pesaba 1,4 MB en cada una
-de las nueve páginas.
+Fuentes de las que salen las piezas de `../marca/`. **Ninguna se sirve en el
+sitio**: son los archivos de partida, y están aquí porque regenerar los
+derivados exige partir de ellos.
 
-De él salen, recortados y sin fondo:
+## En uso
 
-- `../logo.png` — 144x96, 9,6 KB. La marca en el navbar.
-- `../favicon.png` — 64x64, 2,5 KB. El favicon.
+`iconoCP.png` — 2172×724, transparente. Marca (corona + CP), separador y firma
+«Camilo Pacheco / Software Developer», en `#49C102`. Es el origen de las siete
+piezas de `../marca/`. Ver el LEEME de esa carpeta para los recortes y colores.
 
-Se conserva aquí porque es la única copia del original y regenerar los dos
-derivados exige partir de él. El recorte se hizo por canal rojo: los trazos de
-la marca tienen r~8, el halo verde r~35 y el fondo gris r~86.
+`iconoCP.webp` — el mismo material en WebP, 171 KB frente a 466 KB. Se conserva
+por si conviene partir de él.
+
+## Retirado
+
+`icono.png` — logotipo **anterior**, 1024×1024 con fondo gris y halo verde.
+Quedó sustituido por `iconoCP` en agosto de 2026. Se conserva por ser la única
+copia.
+
+> Este archivo llegó a ser el favicon del sitio, con 1,4 MB cargándose en cada
+> una de las nueve páginas. El favicon actual pesa 2 KB.
